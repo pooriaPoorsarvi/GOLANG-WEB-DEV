@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>My Peeps</title>
+</head>
+<body>
+The name is {{.Name}}
+This is the last name  {{.Last_name}}
+The numbers are :
+{{range $index, $value := .Favourtie_years}}
+{{$index}} {{$value}}
+{{end}}
+And this is another vay to show the results :
+{{range .Favourtie_years}}
+{{.}}
+{{end}}
+
+These are his results :
+{{range $key, $value := .Results}}
+
+{{$key}} - {{$value}}
+
+{{end}}
+
+</body>
+</html>
