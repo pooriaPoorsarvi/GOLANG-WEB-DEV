@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+
+{{if .Method}} The Method Of the Request is : {{.Method}} {{end}}<br>
+{{if .Host}} The Host of the request is : {{.Host}} {{end}}<br>
+{{if .ContentLength}} The Host of the request is : {{.ContentLength}} {{end}}<br>
+{{if .URL}} The request URL is as the following :<br>
+        <ul>
+            <li>Scheme : {{.URL.Scheme}}</li>
+            <li>Opaque : {{.URL.Opaque}}</li>
+	        <li>Host : {{.URL.Host}}</li>
+	        <li>Path : {{.URL.Path}}</li>
+	        <li>RawPath : {{.URL.RawPath}}</li>
+            <li>Force Query : {{.URL.ForceQuery}}</li>
+            <li>Raw Query : {{.URL.RawQuery}}</li>
+            <li>Fragment : {{.URL.Fragment}}</li>
+        </ul><br>
+{{end}}
+
+
+{{if .Header}}
+	this is the header <br>
+	{{range $key, $value := .Header}}
+		key : {{$key}}<br>
+		values :<br>
+		{{range $value}}
+			{{.}}<br>
+		{{end}}
+	{{end}}
+{{end}}
+
+{{if .Submission}}
+this is the submissions <br>
+{{range $key, $value := .Submission}}
+key : {{$key}}<br>
+values :<br>
+{{range $value}}
+			{{.}}<br>
+		{{end}}
+{{end}}
+{{end}}
+
+<form action="/?fname=Anyone" method="POST">
+	<input type="text" name="fname" value="" placeholder="put fname here">
+	<button class="button" type="submit">Click here to upload</button>
+</form>
+
+
+
+</body>
+</html>
